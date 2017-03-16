@@ -1,0 +1,14 @@
+#menu{
+  background-color: cyan;
+  float: left;
+  width: 150px;
+}
+#menu ul{
+  list-style: none;
+}
+#menu ul li a:hover{
+  background-color: white;  
+}
+#content{
+  margin-left: 160px;
+}
