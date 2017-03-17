@@ -13,9 +13,11 @@
     </table>
 </form>
 <?php
+session_start();
 $btn=$_POST['btnLogin'];
 if(isset($btn)){
-echo 'Hello '.$_POST['user'];
+  $_SESSION['username']=$_POST['user'];
+  echo 'Hello '.$_POST['user'];
 }
 ?>
 <?php include "footer.php"; ?>
