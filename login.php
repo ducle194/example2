@@ -14,8 +14,8 @@
 </form>
 <?php
 session_start();
-$btn=$_POST['btnLogin'];
-if(isset($btn)){
+
+if(isset($_POST['btnLogin'])){
   $_SESSION['username']=$_POST['user'];
   echo 'Hello '.$_POST['user'];
 }

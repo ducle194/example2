@@ -1,9 +1,9 @@
 <?php include "menu.php"; ?>
 <?php
 include "connection.php";
-$btn=$_POST['btnAdd'];
-if(isset($btn)){
-    $add=$db->prepare("INSERT INTO customers (firstname,lastname,streetaddress) 
+
+if(isset($_POST['btnAdd'])){
+    $add=$db->prepare("INSERT INTO customers (firstname,lastname,streetaddress)
     VALUES(:fn,:ln,:ad)");
     $add->bindParam(':fn',$fn);
     $add->bindParam(':ln',$ln);
@@ -18,16 +18,19 @@ if(isset($btn)){
 <table border="1">
     <tr>
         <th>First name</th><th>Last name</th><th>Street address</th>
+        <th>Edit</th>;
     </tr>
 
-<?php 
+<?php
     include "connection.php";
-    $myquery="SELECT firstname,lastname,streetaddress FROM customers";
+    $myquery="SELECT firstname,lastname,streetaddress,id_customers FROM customers";
     $customers_data=$db->query($myquery);
 
     foreach ($customers_data as $row){
       echo '<tr><td>'.$row['firstname'].'</td><td>'.$row['lastname'].'</td>
-      <td>'.$row['streetaddress'].'</td></tr>';
+      <td>'.$row['streetaddress'].'</td>';
+      echo '<td><a href="update_customer.php?id='.$row['id_customers'].'"><button>Update</button></a></td>';
+      echo '</td>';
     }
 ?>
 </table>
