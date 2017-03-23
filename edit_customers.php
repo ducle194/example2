@@ -15,7 +15,7 @@
     echo '<tr><td><input type="text" name="fn[]" value="'.$row['firstname'].'"/></td>';
     echo '<td><input type="text" name="ln[]" value="'.$row['lastname'].'"/></td>';
     echo '<td><input type="text" name="ad[]" value="'.$row['streetaddress'].'"/></td>';
-    echo '<input type="hidden" name="id[]" value"'.$row['id_customers'].'"/>';
+    echo '<input type="hidden" name="id[]" value="'.$row['id_customers'].'"/>';
     echo '</tr>';
   }
   ?>
