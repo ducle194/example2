@@ -1,4 +1,3 @@
-<?php include "menu.php"; ?>
 <?php
 include "connection.php";
 
@@ -20,6 +19,7 @@ if(isset($_POST['btnDelete'])){
   $db->query($deleteSQL);
 }
 ?>
+<?php include "menu.php"; ?>
 <h2>Customers</h2>
 <table border="1">
     <tr>
@@ -33,11 +33,10 @@ if(isset($_POST['btnDelete'])){
     $customers_data=$db->query($myquery);
 
     foreach ($customers_data as $row){
-      echo '<tr><td>'.$row['firstname'].'</td><td>'.$row['lastname'].'</td>
-      <td>'.$row['streetaddress'].'</td>';
+      echo '<tr><td>'.$row['firstname'].'</td><td>'.$row['lastname'].'</td><td>'.$row['streetaddress'].'</td>';
       echo '<td><a href="update_customer.php?id='.$row['id_customers'].'"><button>Update</button></a></td>';
       echo '<td><a href="delete_customer.php?id='.$row['id_customers'].'"><button>Delete</button></a></td>';
-      echo '</td>';
+      echo '</tr>';
     }
 ?>
 </table>
